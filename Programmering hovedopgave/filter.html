@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produktoversigt – Sinful</title>
+    <link rel="stylesheet" href="filter.css" />
+  </head>
+  <body>
+    <!-- Topbar med tæller og sort (fjernet filter-knap) -->
+    <header class="toolbar">
+      <div class="product-count">
+        Viser <span id="visibleCount">48</span> af
+        <span id="totalCount">678</span> produkter
+      </div>
+      <div class="controls">
+        <label for="sortSelect">Sorter efter:</label>
+        <select id="sortSelect">
+          <option value="popularity">Mest populære</option>
+          <option value="priceAsc">Pris lav→høj</option>
+          <option value="priceDesc">Pris høj→lav</option>
+        </select>
+      </div>
+    </header>
+
+    <div class="content-wrapper">
+      <!-- Filter-sidebar – altid synlig til venstre -->
+      <aside id="filterSidebar" class="sidebar">
+        <div class="sidebar-header">
+          <h2>Filtre</h2>
+        </div>
+        <div class="filter-section">
+          <!-- PRIS -->
+          <details id="priceFilter">
+            <summary>
+              Pris
+              <abbr title="Brug dette filter til at afgrænse produkterne efter prisinterval.">
+                <img src="img/question.png" alt="Info" class="info-icon-img" />
+              </abbr>
+            </summary>
+            <div class="price-filter-content">
+              <div class="slider-container">
+                <span class="price-label" id="minPriceLabel">0 kr.</span>
+                <div class="range-wrap" id="priceRangeWrap">
+                  <input type="range" id="minPrice" min="0" max="2300" value="0" step="10" />
+                  <input type="range" id="maxPrice" min="0" max="2300" value="2300" step="10" />
+                </div>
+                <span class="price-label" id="maxPriceLabel">2.300 kr.</span>
+              </div>
+              <div class="toggle-container">
+                <label class="switch">
+                  <input type="checkbox" id="onSaleToggle" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="onSaleToggle" class="toggle-label">På tilbud</label>
+              </div>
+            </div>
+          </details>
+
+          <!-- Farve -->
+          <details>
+            <summary>Farve</summary>
+            <div class="filter-list">
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-lilla" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-lilla" class="filter-label">
+                  Lilla <span class="count">(175)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-sort" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-sort" class="filter-label">
+                  Sort <span class="count">(165)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-pink" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-pink" class="filter-label">
+                  Pink <span class="count">(94)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-rosa" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-rosa" class="filter-label">
+                  Rosa <span class="count">(86)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-bla" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-bla" class="filter-label">
+                  Blå <span class="count">(64)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-gron" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-gron" class="filter-label">
+                  Grøn <span class="count">(34)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-hvid" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-hvid" class="filter-label">
+                  Hvid <span class="count">(33)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-rod" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-rod" class="filter-label">
+                  Rød <span class="count">(32)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-silv" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-silv" class="filter-label">
+                  Sølv <span class="count">(28)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-bordeaux" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-bordeaux" class="filter-label">
+                  Bordeaux <span class="count">(23)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-turkis" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-turkis" class="filter-label">
+                  Turkis <span class="count">(22)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-gul" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-gul" class="filter-label">
+                  Gul <span class="count">(14)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-koral" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-koral" class="filter-label">
+                  Koral <span class="count">(13)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-guld" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-guld" class="filter-label">
+                  Guld <span class="count">(13)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-orange" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-orange" class="filter-label">
+                  Orange <span class="count">(10)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-flere" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-flere" class="filter-label">
+                  Flere Farver <span class="count">(9)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-morkebla" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-morkebla" class="filter-label">
+                  Mørkeblå <span class="count">(8)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-gra" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-gra" class="filter-label">
+                  Grå <span class="count">(6)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-rosaguld" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-rosaguld" class="filter-label">
+                  Rosaguld <span class="count">(4)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-nude" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-nude" class="filter-label">
+                  Nude <span class="count">(4)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-mork-gra" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-mork-gra" class="filter-label">
+                  Mørk Grå <span class="count">(4)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-klar" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-klar" class="filter-label">
+                  Klar <span class="count">(4)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-brun" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-brun" class="filter-label">
+                  Brun <span class="count">(2)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-lysebrun" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-lysebrun" class="filter-label">
+                  Lysebrun <span class="count">(1)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="color-fuchsia" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="color-fuchsia" class="filter-label">
+                  Fuchsia <span class="count">(1)</span>
+                  <abbr title="Lys lilla-rød farve">
+                    <img src="img/question.png" alt="Info" class="info-icon-img" />
+                  </abbr>
+                </label>
+              </div>
+            </div>
+          </details>
+
+          <!-- Mærke -->
+          <details>
+            <summary>Mærke</summary>
+            <div class="filter-list">
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="brand-sinful" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="brand-sinful" class="filter-label">
+                  Sinful <span class="count">(300)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="brand-others" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="brand-others" class="filter-label">
+                  Andre mærker <span class="count">(378)</span>
+                </label>
+              </div>
+            </div>
+          </details>
+
+          <!-- Fuld længde -->
+          <details>
+            <summary>
+              Fuld længde
+              <abbr title="Vælg det interval for produktets fulde længde i centimeter.">
+                <img src="img/question.png" alt="Info" class="info-icon-img" />
+              </abbr>
+            </summary>
+            <div class="price-filter-content">
+              <div class="slider-container">
+                <span class="price-label" id="minLengthLabel">2 cm</span>
+                <div class="range-wrap" id="lengthRangeWrap">
+                  <input type="range" id="minLength" min="2" max="41" value="2" step="1" />
+                  <input type="range" id="maxLength" min="2" max="41" value="41" step="1" />
+                </div>
+                <span class="price-label" id="maxLengthLabel">41 cm</span>
+              </div>
+            </div>
+          </details>
+
+          <!-- Diameter -->
+          <details id="diameterFilter">
+            <summary>
+              Diameter
+              <abbr title="Vælg interval for produktets diameter i centimeter.">
+                <img src="img/question.png" alt="Info" class="info-icon-img" />
+              </abbr>
+            </summary>
+            <div class="price-filter-content">
+              <div class="slider-container">
+                <span class="price-label" id="minDiameterLabel">0 cm</span>
+                <div class="range-wrap" id="diameterRangeWrap">
+                  <input type="range" id="minDiameter" min="0" max="45" value="0" step="1" />
+                  <input type="range" id="maxDiameter" min="0" max="45" value="45" step="1" />
+                </div>
+                <span class="price-label" id="maxDiameterLabel">45 cm</span>
+              </div>
+            </div>
+          </details>
+
+          <!-- Bredde -->
+          <details id="breadthFilter">
+            <summary>
+              Bredde
+              <abbr title="Vælg interval for produktets bredde i centimeter.">
+                <img src="img/question.png" alt="Info" class="info-icon-img" />
+              </abbr>
+            </summary>
+            <div class="price-filter-content">
+              <div class="slider-container">
+                <span class="price-label" id="minBreadthLabel">1 cm</span>
+                <div class="range-wrap" id="breadthRangeWrap">
+                  <input type="range" id="minBreadth" min="1" max="21" value="1" step="1" />
+                  <input type="range" id="maxBreadth" min="1" max="21" value="21" step="1" />
+                </div>
+                <span class="price-label" id="maxBreadthLabel">21 cm</span>
+              </div>
+            </div>
+          </details>
+
+          <!-- Strømkilde -->
+          <details id="powerSourceFilter">
+            <summary>Strømkilde</summary>
+            <div class="filter-list">
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="power-rechargeable" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="power-rechargeable" class="filter-label">
+                  Genopladelig <span class="count">(533)</span>
+                  <abbr title="Kan oplades med medfølgende oplader">
+                    <img src="img/question.png" alt="Info" class="info-icon-img" />
+                  </abbr>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="power-batteries" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="power-batteries" class="filter-label">
+                  Batterier <span class="count">(121)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="power-mains" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="power-mains" class="filter-label">
+                  Til stikkontakt <span class="count">(19)</span>
+                  <abbr title="Skal tilkobles stikkontakt under brug">
+                    <img src="img/question.png" alt="Info" class="info-icon-img" />
+                  </abbr>
+                </label>
+              </div>
+            </div>
+          </details>
+
+          <!-- Vibrationshastighed -->
+          <details id="vibrationSpeedFilter">
+            <summary>
+              Vibrationshastighed
+              <abbr title="Vælg hvor mange hastigheder produktet har.">
+                <img src="img/question.png" alt="Info" class="info-icon-img" />
+              </abbr>
+            </summary>
+            <div class="filter-list">
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-1" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-1" class="filter-label">
+                  1 <span class="count">(32)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-2" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-2" class="filter-label">
+                  2 <span class="count">(14)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-3" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-3" class="filter-label">
+                  3 <span class="count">(190)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-4" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-4" class="filter-label">
+                  4 <span class="count">(8)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-5" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-5" class="filter-label">
+                  5 <span class="count">(47)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-6" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-6" class="filter-label">
+                  6 <span class="count">(28)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-7" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-7" class="filter-label">
+                  7 <span class="count">(27)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-8" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-8" class="filter-label">
+                  8 <span class="count">(22)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-9" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-9" class="filter-label">
+                  9 <span class="count">(3)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-10" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-10" class="filter-label">
+                  10 <span class="count">(88)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-11" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-11" class="filter-label">
+                  11 <span class="count">(14)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-12" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-12" class="filter-label">
+                  12 <span class="count">(16)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-13" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-13" class="filter-label">
+                  13 <span class="count">(4)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-14" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-14" class="filter-label">
+                  14 <span class="count">(2)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-15" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-15" class="filter-label">
+                  15 <span class="count">(3)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-16" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-16" class="filter-label">
+                  16 <span class="count">(1)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-20" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-20" class="filter-label">
+                  20 <span class="count">(4)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-30" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-30" class="filter-label">
+                  30 <span class="count">(1)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-36" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-36" class="filter-label">
+                  36 <span class="count">(3)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-speed-multispeed" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-speed-multispeed" class="filter-label">
+                  Multispeed <span class="count">(28)</span>
+                </label>
+              </div>
+            </div>
+          </details>
+          
+
+          <!-- Vibrationmønster -->
+          <details id="vibrationPatternFilter">
+            <summary>
+              Vibrationmønster
+              <abbr title="Vælg hvor mange vibrationsmønstre produktet har.">
+                <img src="img/question.png" alt="Info" class="info-icon-img" />
+              </abbr>
+            </summary>
+            <div class="filter-list">
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-pattern-1" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-pattern-1" class="filter-label">
+                  1 <span class="count">(15)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-pattern-2" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-pattern-2" class="filter-label">
+                  2 <span class="count">(1)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-pattern-3" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-pattern-3" class="filter-label">
+                  3 <span class="count">(16)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-pattern-4" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-pattern-4" class="filter-label">
+                  4 <span class="count">(26)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-pattern-5" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-pattern-5" class="filter-label">
+                  5 <span class="count">(22)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-pattern-6" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-pattern-6" class="filter-label">
+                  6 <span class="count">(23)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-pattern-7" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-pattern-7" class="filter-label">
+                  7 <span class="count">(149)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-pattern-8" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-pattern-8" class="filter-label">
+                  8 <span class="count">(18)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-pattern-9" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-pattern-9" class="filter-label">
+                  9 <span class="count">(18)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-pattern-10" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-pattern-10" class="filter-label">
+                  10 <span class="count">(76)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-pattern-11" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-pattern-11" class="filter-label">
+                  11 <span class="count">(3)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-pattern-12" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-pattern-12" class="filter-label">
+                  12 <span class="count">(18)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-pattern-15" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-pattern-15" class="filter-label">
+                  15 <span class="count">(7)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-pattern-17" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-pattern-17" class="filter-label">
+                  17 <span class="count">(1)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-pattern-20" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-pattern-20" class="filter-label">
+                  20 <span class="count">(5)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-pattern-21" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-pattern-21" class="filter-label">
+                  21 <span class="count">(1)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-pattern-25" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-pattern-25" class="filter-label">
+                  25 <span class="count">(1)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="vib-pattern-36" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="vib-pattern-36" class="filter-label">
+                  36 <span class="count">(1)</span>
+                </label>
+              </div>
+            </div>
+          </details>
+          
+
+          <!-- Primært materiale -->
+          <details>
+            <summary>Primært materiale</summary>
+            <div class="filter-list">
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="mat-silicone" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="mat-silicone" class="filter-label">
+                  Silikone <span class="count">(540)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="mat-abs" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="mat-abs" class="filter-label">
+                  ABS-plast <span class="count">(86)</span>
+                  <abbr title="Acrylnitril-butadien-styren, en amorf termoplast">
+                    <img src="img/question.png" alt="Info" class="info-icon-img" />
+                  </abbr>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="mat-tpe" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="mat-tpe" class="filter-label">
+                  TPE <span class="count">(14)</span>
+                  <abbr title="Termoplastiske elastomer">
+                    <img src="img/question.png" alt="Info" class="info-icon-img" />
+                  </abbr>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="mat-tpr" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="mat-tpr" class="filter-label">
+                  TPR <span class="count">(12)</span>
+                  <abbr title="Termoplastisk gummi">
+                    <img src="img/question.png" alt="Info" class="info-icon-img" />
+                  </abbr>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="mat-pvc" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="mat-pvc" class="filter-label">
+                  PVC <span class="count">(6)</span>
+                  <abbr title="Polyvinylklorid">
+                    <img src="img/question.png" alt="Info" class="info-icon-img" />
+                  </abbr>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="mat-stal" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="mat-stal" class="filter-label">
+                  Rustfrit stål <span class="count">(4)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="mat-alu" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="mat-alu" class="filter-label">
+                  Aluminium <span class="count">(2)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="mat-zink" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="mat-zink" class="filter-label">
+                  Zinklegering <span class="count">(1)</span>
+                  <abbr title="Zink kombineret med andre metaller">
+                    <img src="img/question.png" alt="Info" class="info-icon-img" />
+                  </abbr>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="mat-pet" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="mat-pet" class="filter-label">
+                  PET (Polyester) <span class="count">(1)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="mat-obp" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="mat-obp" class="filter-label">
+                  OBP (Ocean-Bound plast) <span class="count">(1)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="mat-elastomer" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="mat-elastomer" class="filter-label">
+                  Elastomer <span class="count">(1)</span>
+                  <abbr title="Elastisk materiale">
+                    <img src="img/question.png" alt="Info" class="info-icon-img" />
+                  </abbr>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="mat-biolene" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="mat-biolene" class="filter-label">
+                  Biolene <span class="count">(1)</span>
+                </label>
+              </div>
+            </div>
+          </details>
+
+          <!-- Egenskaber (sexlegetøj) -->
+          <details>
+            <summary>Egenskaber (sexlegetøj)</summary>
+            <div class="filter-list">
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="feat-opladelig" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="feat-opladelig" class="filter-label">
+                  Opladelig <span class="count">(291)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="feat-staenktæt" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="feat-staenktæt" class="filter-label">
+                  Stænktæt <span class="count">(156)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="feat-vandtæt" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="feat-vandtæt" class="filter-label">
+                  Vandtæt <span class="count">(117)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="feat-batteridrevet" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="feat-batteridrevet" class="filter-label">
+                  Batteridrevet <span class="count">(47)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="feat-lydsvag" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="feat-lydsvag" class="filter-label">
+                  Lydsvag <span class="count">(38)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="feat-fjernbetjent" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="feat-fjernbetjent" class="filter-label">
+                  Fjernbetjent <span class="count">(33)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="feat-appstyret" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="feat-appstyret" class="filter-label">
+                  App-styret <span class="count">(28)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="feat-vakuum" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="feat-vakuum" class="filter-label">
+                  Vakuum funktion <span class="count">(8)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="feat-smykkesten" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="feat-smykkesten" class="filter-label">
+                  Med smykkesten <span class="count">(5)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="feat-justerbar" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="feat-justerbar" class="filter-label">
+                  Justerbar <span class="count">(3)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="feat-varme" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="feat-varme" class="filter-label">
+                  Varmefunktion <span class="count">(2)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="feat-boxes" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="feat-boxes" class="filter-label">
+                  Sexlegetøj bokse <span class="count">(2)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="feat-realistisk" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="feat-realistisk" class="filter-label">
+                  Realistisk <span class="count">(2)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="feat-oppustelig" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="feat-oppustelig" class="filter-label">
+                  Oppustelig <span class="count">(2)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="feat-vr" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="feat-vr" class="filter-label">
+                  Virtual Reality app <span class="count">(1)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="feat-strapon" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="feat-strapon" class="filter-label">
+                  Til Strap On-Brug <span class="count">(1)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="feat-sugekop" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="feat-sugekop" class="filter-label">
+                  Sugekop <span class="count">(1)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="feat-selvlysende" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="feat-selvlysende" class="filter-label">
+                  Selvlysende <span class="count">(1)</span>
+                </label>
+              </div>
+              <div class="filter-row">
+                <label class="switch">
+                  <input type="checkbox" id="feat-glitter" />
+                  <span class="slider-toggle"></span>
+                </label>
+                <label for="feat-glitter" class="filter-label">
+                  Glitter <span class="count">(1)</span>
+                </label>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <button class="apply-btn">Vis alle 678 produkter</button>
+      </aside>
+
+      <!-- Hovedindhold: produktgitter -->
+      <main class="main-content">
+        <div id="productGrid" class="product-grid">
+          <div class="product-card" data-color="sort">
+            <img src="img/LuxyEkstraWans.webp" alt="Sinful Luxy Ekstra Kraftig Magic Wand Vibrator" />
+            <div class="rating">★★★★☆</div>
+            <div class="title">Sinful Luxy Ekstra Kraftig Magic Wand Vibrator</div>
+            <div class="price">449,00 kr.</div>
+          </div>
+          <div class="product-card" data-color="pink">
+            <img src="img/Lush4.webp" alt="Lovense Lush 4 G-punkts vibrator" />
+            <div class="rating">★★★★★</div>
+            <div class="title">Lovense Lush 4 G-punkts vibrator</div>
+            <div class="price">995,00 kr.</div>
+          </div>
+          <div class="product-card" data-color="guld">
+            <img src="img/satisfyerPro2.webp" alt="Satisfyer Pro 2" />
+            <div class="rating">★★★★★</div>
+            <div class="title">Satisfyer Pro 2 Generation 2 Original Klitoris Stimulator</div>
+            <div class="price">219.00 kr.</div>
+          </div>
+          <div class="product-card" data-color="sort">
+            <img src="img/CurveRabbit.webp" alt="Sinful Curve Rabbit Vibrator Opladelig" />
+            <div class="rating">★★★★★</div>
+            <div class="title">Sinful Curve Rabbit Vibrator Opladelig</div>
+            <div class="price">399.00 kr.</div>
+          </div>
+          <div class="product-card" data-color="sort">
+            <img src="img/2-i-1Bliss.webp" alt="Sinful 2-i-1 Bliss Love Æg og Klitoris Vibrator" />
+            <div class="rating">★★★★☆</div>
+            <div class="title">Sinful 2-i-1 Bliss Love Æg og Klitoris Vibrator</div>
+            <div class="price">499,00 kr.</div>
+          </div>
+          <div class="product-card" data-color="pink">
+            <img src="img/Lush3.webp" alt="Lovense Lush 3 App-Styret Vibrator Æg" />
+            <div class="rating">★★★★☆</div>
+            <div class="title">Lovense Lush 3 App-Styret Vibrator Æg</div>
+            <div class="price">899,00 kr.</div>
+          </div>
+          <div class="product-card" data-color="lilla">
+            <img src="img/AmaysinCurvyRabbit.webp" alt="Amaysin Curvy Rabbit Vibrator Opladelig" />
+            <div class="rating">★★★★☆</div>
+            <div class="title">Amaysin Curvy Rabbit Vibrator Opladelig</div>
+            <div class="price">399,00 kr.</div>
+          </div>
+          <div class="product-card" data-color="sort">
+            <img src="img/DoublePleasure.webp" alt="Sinful Curvy Double Pleasure Opladelig Magic Wand Vibrator" />
+            <div class="rating">★★★★☆</div>
+            <div class="title">Sinful Curvy Double Pleasure Opladelig Magic Wand Vibrator</div>
+            <div class="price">399,00 kr.</div>
+          </div>
+          <div class="product-card" data-color="sort">
+            <img src="img/TrusseVibrator.webp" alt="Sinful Opladelig Fjernbetjent Trusse Vibrator" />
+            <div class="rating">★★★★☆</div>
+            <div class="title">Sinful Opladelig Fjernbetjent Trusse Vibrator</div>
+            <div class="price">399,00 kr.</div>
+          </div>
+          <div class="product-card" data-color="guld">
+            <img src="img/satisfyer1.webp" alt="Satisfyer Number One Klitoris Stimulator" />
+            <div class="rating">★★★★★</div>
+            <div class="title">Satisfyer Number One Klitoris Stimulator</div>
+            <div class="price">159,00 kr.</div>
+          </div>
+          <div class="product-card" data-color="sort">
+            <img src="img/SinfulFleksibalGpunkt.webp" alt="Sinful Fleksibel G-punkts Vibrator Opladelig" />
+            <div class="rating">★★★★★</div>
+            <div class="title">Sinful Fleksibel G-punkts Vibrator Opladelig</div>
+            <div class="price">399,00 kr.</div>
+          </div>
+          <div class="product-card" data-color="sort">
+            <img src="img/SinfulMiniWand.webp" alt="Sinful Opladelig Mini Magic Wand" />
+            <div class="rating">★★★★★</div>
+            <div class="title">Sinful Opladelig Mini Magic Wand</div>
+            <div class="price">349,00 kr.</div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="filter.js"></script>
+  </body>
+</html>
