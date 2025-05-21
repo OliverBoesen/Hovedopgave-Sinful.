@@ -1,0 +1,302 @@
+/* ===== Reset & Base ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  color: #333;
+  line-height: 1.5;
+  padding: 20px;
+  background: #f9f9f9;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== Layout ===== */
+.container {
+  display: flex;
+  max-width: 1500px;
+  margin: auto;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  gap: 3rem;
+}
+.gallery {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 10px;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+  gap: 2rem;
+}
+.thumbnails {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 20px;
+  width: auto;
+}
+.thumbnails img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.thumbnails img.active {
+  border-color: #000;
+}
+.main-img {
+  flex: 1;
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+}
+
+/* ===== Product Info ===== */
+.product-info {
+  flex: 1 1 50%;
+  padding: 20px;
+}
+.product-info h1 {
+  font-size: 1.7rem;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  margin-top: 0.5rem;
+}
+.rating {
+  display: flex;
+  align-items: center;
+}
+.stars {
+  color: #2e45b8;
+  margin-right: 8px;
+}
+.stars span {
+  font-size: 2rem;
+}
+.reviews-count {
+  color: #777;
+  margin-top: 5px;
+}
+
+/* ===== Recommendations ===== */
+.recommendations {
+  margin-bottom: 10px;
+  max-width: 60%;
+}
+.recommendations h2 {
+  font-size: 1rem;
+  margin-bottom: -1rem;
+  font-weight: 800;
+}
+.recommend-list {
+  list-style: none;
+  padding: 0;
+}
+.recommend-list li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ebebeb;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.recommend-list li .info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.recommend-list li .info a {
+  display: block;
+  white-space: normal;
+  overflow-wrap: break-word;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  margin-bottom: 4px;
+}
+.recommend-list li img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  margin: 0 20px 0 10px;
+}
+.recommend-list li .price {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+.recommend-list li .moms p {
+  font-size: 0.8rem;
+  opacity: 0.5;
+  margin: 0;
+}
+
+/* ===== Add Button & Confirm Flow ===== */
+.add-container {
+  position: relative;
+  margin-left: auto;
+}
+.btn.small {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #dbdbdb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: transparent;
+  color: transparent;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.btn.small img {
+  max-width: 35px;
+  max-height: 35px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+.confirm-inline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirm-inline p {
+  margin: 0;
+  text-align: center;
+}
+
+.confirm-inline .confirm-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Sikrer tekst og baggrund på knapperne */
+.confirm-inline .btn.small {
+  color: #333 !important;
+  background-color: white;
+  border: 1px solid #dbdbdb;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.confirm-inline .btn.small:hover {
+  background-color: black;
+  color: white !important;
+}
+
+
+
+/* === Fjern-overlay på animation === */
+.added-video-container {
+  position: relative;
+  display: inline-block;
+}
+
+
+
+
+
+.added-video-container .remove-overlay {
+  position: absolute;
+  top: 0.7rem;
+  left: .75rem;
+  width: 60%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.added-video-container:hover .remove-overlay {
+  opacity: 1;
+}
+
+/* ===== Global Buttons & Meta ===== */
+.btn {
+  display: inline-block;
+  background: black;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+#addToCart {
+  width: 60%;
+  margin-top: 1rem;
+}
+#addToCart:active,
+.btn:active {
+  transform: scale(0.98);
+}
+.price-large {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.moms-large p {
+  font-size: 0.9rem;
+  opacity: 0.5;
+  margin-top: -1.5rem;
+}
+.meta {
+  margin-top: 15px;
+  color: #28a745;
+  font-weight: bold;
+}
+
+.solgt-i-dag {
+  align-items: center; /* Lodret centring af børnene */
+  justify-content: center; /* (hvis du også vil centrere horisontalt) */
+  margin-top: .5rem;
+}
+
+
+.solgt-i-dag img {
+  vertical-align: bottom;
+  width: 24px;
+  height: auto;
+  margin-right: .5rem;
+}
+
+.meta small {
+  color: #555;
+  font-weight: normal;
+  display: block;
+  margin-top: 5px;
+}
+
+@media only screen and (max-width: 1200px){
+
+  .recommend-list li {
+    width: 20rem;
+  }
+}
